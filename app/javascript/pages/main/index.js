@@ -42,23 +42,14 @@ function NumericInput(props) {
   );
 }
 
-export default function App() {
+function SearchBar({ setAddedParts }) {
   const { colors, categories } = useDOMState("root");
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedPart, setSelectedPart] = useState(null);
   const [selectedMinimumQuantity, setSelectedMinimumQuantity] = useState(0);
   const [parts, setParts] = useState([]);
-  const [addedParts, setAddedParts] = useState([]);
-  const [eligibleStores, setEligibleStores] = useState([]);
   const [isAddingPart, setIsAddingPart] = useState(false);
-  const [isLoadingSearchInStores, setIsLoadingSearchInStores] = useState(false);
-
-  async function loadParts(categoryId) {
-    const response = await fetch(`/parts?category_id=${categoryId}`);
-    const parts = await response.json();
-    setParts(parts);
-  }
 
   useEffect(() => {
     if (selectedCategory?.value) {
@@ -66,6 +57,12 @@ export default function App() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCategory?.value]);
+
+  async function loadParts(categoryId) {
+    const response = await fetch(`/parts?category_id=${categoryId}`);
+    const parts = await response.json();
+    setParts(parts);
+  }
 
   async function addToList() {
     setIsAddingPart(true);
@@ -87,6 +84,83 @@ export default function App() {
 
     setIsAddingPart(false);
   }
+
+  return (
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        addToList();
+      }}
+      className={classNames(
+        layoutStyles.flex,
+        layoutStyles.distributedBetween,
+        layoutStyles.alignedCenter,
+        styles.nav
+      )}
+    >
+      <Select
+        value={selectedColor}
+        placeholder="Select a color..."
+        isSearchable
+        onChange={setSelectedColor}
+        options={colors.map((color) => ({
+          value: color.bl_id,
+          label: color.name,
+          object: color,
+        }))}
+      />
+      <Select
+        value={selectedCategory}
+        placeholder="Select a category..."
+        isSearchable
+        onChange={setSelectedCategory}
+        options={categories.map((category) => ({
+          value: category.id,
+          label: category.name,
+          object: category,
+        }))}
+      />
+      <Select
+        value={selectedPart}
+        placeholder="Select a part..."
+        isSearchable
+        onChange={setSelectedPart}
+        options={parts.map((part) => ({
+          value: part.number,
+          label: part.name,
+          object: part,
+        }))}
+        isDisabled={parts.length === 0}
+      />
+      <input
+        type="number"
+        className={formStyles.input}
+        size="3"
+        min="0"
+        value={selectedMinimumQuantity}
+        onChange={(event) =>
+          setSelectedMinimumQuantity(Number(event.target.value))
+        }
+      />
+      <button
+        type="submit"
+        className={classNames(buttonStyles.button, buttonStyles.ghost)}
+        disabled={!selectedPart || !selectedColor}
+      >
+        {isAddingPart ? (
+          <LoaderIcon width="16" height="16" className="spinning" />
+        ) : (
+          <PlusIcon width="16" height="16" />
+        )}
+      </button>
+    </form>
+  );
+}
+
+export default function App() {
+  const [addedParts, setAddedParts] = useState([]);
+  const [eligibleStores, setEligibleStores] = useState([]);
+  const [isLoadingSearchInStores, setIsLoadingSearchInStores] = useState(false);
 
   function updateItemInList(itemIndex, newValue) {
     setAddedParts((previousValue) =>
@@ -151,74 +225,7 @@ export default function App() {
 
   return (
     <>
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          addToList();
-        }}
-        className={classNames(
-          layoutStyles.flex,
-          layoutStyles.distributedBetween,
-          layoutStyles.alignedCenter,
-          styles.nav
-        )}
-      >
-        <Select
-          value={selectedColor}
-          placeholder="Select a color..."
-          isSearchable
-          onChange={setSelectedColor}
-          options={colors.map((color) => ({
-            value: color.bl_id,
-            label: color.name,
-            object: color,
-          }))}
-        />
-        <Select
-          value={selectedCategory}
-          placeholder="Select a category..."
-          isSearchable
-          onChange={setSelectedCategory}
-          options={categories.map((category) => ({
-            value: category.id,
-            label: category.name,
-            object: category,
-          }))}
-        />
-        <Select
-          value={selectedPart}
-          placeholder="Select a part..."
-          isSearchable
-          onChange={setSelectedPart}
-          options={parts.map((part) => ({
-            value: part.number,
-            label: part.name,
-            object: part,
-          }))}
-          isDisabled={parts.length === 0}
-        />
-        <input
-          type="number"
-          className={formStyles.input}
-          size="3"
-          min="0"
-          value={selectedMinimumQuantity}
-          onChange={(event) =>
-            setSelectedMinimumQuantity(Number(event.target.value))
-          }
-        />
-        <button
-          type="submit"
-          className={classNames(buttonStyles.button, buttonStyles.ghost)}
-          disabled={!selectedPart || !selectedColor}
-        >
-          {isAddingPart ? (
-            <LoaderIcon width="16" height="16" className="spinning" />
-          ) : (
-            <PlusIcon width="16" height="16" />
-          )}
-        </button>
-      </form>
+      <SearchBar setAddedParts={setAddedParts} />
       <section className={styles.tableWrapper}>
         <table className={classNames(tableStyles.table, tableStyles.full)}>
           <thead>
@@ -316,56 +323,13 @@ export default function App() {
           </thead>
           <tbody>
             {eligibleStores.flatMap((eligibleStore) => {
-              const [firstItem, ...otherItems] = eligibleStore.items;
               const totals = {
                 price: 0,
                 weight: 0,
               };
 
-              const quantity = Math.min(
-                firstItem.quantity,
-                firstItem.minimum_quantity
-              );
-              const price = firstItem.price * quantity;
-              const weight = Number(firstItem.part.weight) * quantity;
-
-              totals.price += price;
-              totals.weight += weight;
-
               return [
-                <tr
-                  key={`${eligibleStore.url}.${firstItem.inventory_id}`}
-                  className={styles.rowSeparator}
-                >
-                  <td rowSpan={eligibleStore.items.length + 1}>
-                    <a target="_blank" href={eligibleStore.url}>
-                      {eligibleStore.name}{" "}
-                      {eligibleStore.instant_checkout ? "⚡️" : null}
-                    </a>
-                  </td>
-                  <td>
-                    <a
-                      target="_blank"
-                      href={`${eligibleStore.url}?itemID=${firstItem.inventory_id}`}
-                    >
-                      {firstItem.color.name} {firstItem.part.name} (
-                      {firstItem.is_new ? "New" : "Used"})
-                    </a>
-                    {firstItem.description ? (
-                      <p className={styles.itemDescription}>
-                        <small>{firstItem.description}</small>
-                      </p>
-                    ) : null}
-                  </td>
-                  <td>US$ {firstItem.price}</td>
-                  <td>{firstItem.part.weight} g</td>
-                  <td>{quantity}</td>
-                  <td>US$ {(firstItem.price * quantity).toFixed(2)}</td>
-                  <td>
-                    {(Number(firstItem.part.weight) * quantity).toFixed(2)} g
-                  </td>
-                </tr>,
-                ...otherItems.map((item) => {
+                ...eligibleStore.items.map((item, index) => {
                   const quantity = Math.min(
                     item.quantity,
                     item.minimum_quantity
@@ -377,7 +341,18 @@ export default function App() {
                   totals.weight += weight;
 
                   return (
-                    <tr key={`${eligibleStore.url}.${item.inventory_id}`}>
+                    <tr
+                      key={`${eligibleStore.url}.${item.inventory_id}`}
+                      className={index === 0 ? styles.rowSeparator : null}
+                    >
+                      {index === 0 ? (
+                        <td rowSpan={eligibleStore.items.length + 1}>
+                          <a target="_blank" href={eligibleStore.url}>
+                            {eligibleStore.name}{" "}
+                            {eligibleStore.instant_checkout ? "⚡️" : null}
+                          </a>
+                        </td>
+                      ) : null}
                       <td>
                         <a
                           target="_blank"
