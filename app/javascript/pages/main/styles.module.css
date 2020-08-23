@@ -28,6 +28,11 @@
   overflow-y: auto;
 }
 
+.itemDescription {
+  margin: 0;
+  max-width: 480px;
+}
+
 .rowSeparator > td {
   border-top: solid 1px var(--black100);
 }

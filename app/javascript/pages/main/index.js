@@ -318,6 +318,11 @@ export default function App() {
                     >
                       {firstItem.color.name} {firstItem.part.name}
                     </a>
+                    {firstItem.description ? (
+                      <p className={styles.itemDescription}>
+                        <small>{firstItem.description}</small>
+                      </p>
+                    ) : null}
                   </td>
                   <td>US$ {firstItem.price}</td>
                   <td>{firstItem.part.weight} g</td>
@@ -347,6 +352,11 @@ export default function App() {
                         >
                           {item.color.name} {item.part.name}
                         </a>
+                        {item.description ? (
+                          <p className={styles.itemDescription}>
+                            <small>{item.description}</small>
+                          </p>
+                        ) : null}
                       </td>
                       <td>US$ {item.price}</td>
                       <td>{item.part.weight} g</td>
