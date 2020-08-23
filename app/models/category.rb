@@ -6,6 +6,7 @@ class Category < ApplicationRecord
     query = query.or(where("name LIKE ?", "Tile%"))
     query = query.or(where("name LIKE ?", "Bracket%"))
     query = query.or(where("name LIKE ?", "Minifigure%"))
+    query = query.or(where("name LIKE ?", "Baseplate%"))
 
     query
   end
