@@ -1,0 +1,5 @@
+.input {
+  border: solid 1px var(--border-color-base);
+  border-radius: var(--border-radius);
+  padding: 8px;
+}

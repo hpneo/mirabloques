@@ -1,0 +1,19 @@
+.table {
+  border: solid 1px var(--border-color-base);
+  border-collapse: collapse;
+}
+
+.table.full {
+  width: 100%;
+}
+
+.table th {
+  background: var(--white600);
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  border-right: solid 1px var(--border-color-base);
+  border-bottom: solid 1px var(--border-color-base);
+}

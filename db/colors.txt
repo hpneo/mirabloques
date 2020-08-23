@@ -1,0 +1,182 @@
+Color ID	Color Name	RGB	Type	Parts	In Sets	Wanted	For Sale	Year From	Year To
+0	(Not Applicable)		N/A	4137	11335	51251	9722	1954	2020
+41	Aqua	b5d3d6	Solid	80	59	868	114	1998	2006
+11	Black	212121	Solid	9599	10695	13115	9828	1957	2020
+7	Blue	0057a6	Solid	3558	7316	5673	3894	1950	2020
+97	Blue-Violet	506cef	Solid	37	17	498	60	2004	2005
+36	Bright Green	10cb31	Solid	494	1463	1650	596	1950	2020
+105	Bright Light Blue	9FC3E9	Solid	284	390	1040	315	2004	2020
+110	Bright Light Orange	F7BA30	Solid	828	1137	1859	905	2000	2020
+103	Bright Light Yellow	F3E055	Solid	298	482	1352	336	2004	2020
+104	Bright Pink	FFBBFF	Solid	480	865	1050	514	2003	2020
+8	Brown	532115	Solid	569	1082	2505	874	1974	2006
+227	Clikits Lavender	E0AAD9	Solid	9	12	35	9	2005	2005
+220	Coral	f88379	Solid	76	90	292	82	2019	2020
+153	Dark Azure	3399FF	Solid	471	580	1212	490	2000	2020
+63	Dark Blue	143044	Solid	1726	1630	3225	1768	1961	2020
+109	Dark Blue-Violet	2032B0	Solid	7	5	458	14	2004	2006
+85	Dark Bluish Gray	595D60	Solid	3251	5231	5918	3564	1991	2020
+120	Dark Brown	330000	Solid	618	1227	2101	667	2008	2020
+10	Dark Gray	6b5a5a	Solid	1038	1694	3254	1404	1961	2007
+80	Dark Green	2E5543	Solid	748	788	2248	807	1961	2020
+225	Dark Nougat	E78B3E	Solid	3	10	107	6	2001	2004
+68	Dark Orange	b35408	Solid	573	1269	1659	663	1979	2020
+47	Dark Pink	C87080	Solid	591	910	1172	657	1994	2020
+89	Dark Purple	5f2683	Solid	747	863	1591	809	2003	2020
+59	Dark Red	6a0e15	Solid	1359	1432	2917	1412	1961	2020
+69	Dark Tan	907450	Solid	863	1767	2279	893	1961	2020
+39	Dark Turquoise	008a80	Solid	306	325	851	378	1998	2020
+161	Dark Yellow	DD982E	Solid	4	4	432	20	2004	2005
+29	Earth Orange	E6881D	Solid	36	87	450	54	1982	2006
+106	Fabuland Brown	B3694E	Solid	8	28	605	21	1979	1997
+160	Fabuland Orange	EF9121	Solid	1	1	228	5	1983	1983
+6	Green	00642e	Solid	1802	4506	3706	2058	1950	2020
+154	Lavender	B18CBF	Solid	212	299	542	254	2004	2020
+152	Light Aqua	CCFFFF	Solid	288	301	615	299	2011	2020
+62	Light Blue	B4D2E3	Solid	42	33	663	98	1950	2007
+86	Light Bluish Gray	afb5c7	Solid	3621	5625	6360	4021	1993	2020
+9	Light Gray	9c9c9c	Solid	1840	3181	4536	2328	1954	2008
+38	Light Green	a5dbb5	Solid	69	64	441	113	1992	2007
+35	Light Lime	EbEE8F	Solid	18	15	229	38	1992	2007
+90	Light Nougat	feccb0	Solid	1325	1284	2306	1310	2004	2020
+32	Light Orange	f7ad63	Solid	16	16	304	53	1998	2005
+56	Light Pink	FFE1FF	Solid	6	12	349	57	1994	2007
+93	Light Purple	DA70D6	Solid	26	14	369	55	1999	2006
+26	Light Salmon	FFDEDC	Solid	49	19	277	55	1997	1999
+40	Light Turquoise	31B5CA	Solid	48	39	393	75	1998	2004
+44	Light Violet	C9CAE2	Solid	70	39	251	84	1994	2004
+33	Light Yellow	ffe383	Solid	95	74	916	152	1994	2011
+34	Lime	A6CA55	Solid	1409	1941	2217	1524	1982	2020
+72	Maersk Blue	6BADD6	Solid	84	14	437	107	1974	2011
+71	Magenta	B52952	Solid	427	669	1038	466	2000	2020
+156	Medium Azure	42C0FB	Solid	584	938	1187	614	2012	2020
+42	Medium Blue	61afff	Solid	737	971	1673	838	1950	2020
+91	Medium Brown	774125	Solid	40	28	928	71	2002	2006
+94	Medium Dark Pink	F785B1	Solid	14	7	217	47	1992	1996
+37	Medium Green	62F58E	Solid	121	99	442	148	1950	2004
+157	Medium Lavender	885E9E	Solid	355	445	657	381	2012	2020
+76	Medium Lime	BDC618	Solid	63	36	298	82	1998	2005
+150	Medium Nougat	E3A05B	Solid	637	973	1410	648	2010	2020
+31	Medium Orange	FFA531	Solid	138	117	751	173	1950	2012
+73	Medium Violet	9391e4	Solid	17	22	140	23	1999	2005
+166	Neon Green	BCEF66	Solid			206	9
+165	Neon Orange	FA5947	Solid			209	3
+28	Nougat	FFAF7D	Solid	143	183	911	177	1979	2020
+155	Olive Green	7C9051	Solid	446	339	1458	474	2012	2020
+4	Orange	FF7E14	Solid	1608	2703	3091	1774	1993	2020
+23	Pink	FFC0CB	Solid	120	78	709	216	1991	2005
+24	Purple	a5499c	Solid	144	134	948	264	1996	2008
+5	Red	b30006	Solid	6562	9177	9623	7012	1950	2020
+88	Reddish Brown	89351d	Solid	1622	3290	3224	1819	1961	2020
+27	Rust	b52c20	Solid	9	13	824	24	1989	2001
+25	Salmon	f45c40	Solid	88	31	271	92	1997	2003
+55	Sand Blue	5a7184	Solid	541	456	1446	581	2001	2020
+48	Sand Green	76a290	Solid	510	461	1384	554	1964	2020
+54	Sand Purple	B57DA5	Solid	20	5	286	22	2001	2002
+58	Sand Red	8c6b6b	Solid	39	18	323	47	2001	2004
+87	Sky Blue	7DBFDD	Solid	29	24	391	43	2003	2007
+2	Tan	dec69c	Solid	1855	3708	3918	2051	1958	2020
+99	Very Light Bluish Gray	e4e8e8	Solid	50	46	1576	75	2004	2013
+49	Very Light Gray	E8E8E8	Solid	22	24	913	53	1997	2004
+96	Very Light Orange	E6C05D	Solid	1	2	238	11	2000	2000
+43	Violet	3448a4	Solid	78	44	353	88	1992	2004
+1	White	FFFFFF	Solid	11898	9107	16107	11830	1950	2020
+3	Yellow	f7d117	Solid	5878	9014	8785	6678	1950	2020
+158	Yellowish Green	DFEEA5	Solid	138	168	400	148	2012	2020
+113	Trans-Aqua	B7C8BF	Transparent	36	37	295	47	2003	2006
+13	Trans-Black	939484	Transparent	400	1537	995	458	1999	2020
+108	Trans-Bright Green	10Cb31	Transparent	142	393	446	179	2006	2020
+12	Trans-Clear	EEEEEE	Transparent	822	4328	2180	1027	1950	2020
+14	Trans-Dark Blue	00296B	Transparent	250	1512	920	304	1978	2020
+50	Trans-Dark Pink	CE1d9b	Transparent	194	570	397	220	1998	2020
+20	Trans-Green	217625	Transparent	134	1349	544	179	1969	2020
+15	Trans-Light Blue	68BCC5	Transparent	645	2365	1403	778	1985	2020
+226	Trans-Light Bright Green	34EF55	Transparent	26	18	73	29	2003	2006
+221	Trans-Light Green	94E5AB	Transparent	9	3	70	12	2005	2006
+164	Trans-Light Orange	E99A3A	Transparent	36	22	245	71	2003	2006
+114	Trans-Light Purple	B97AB1	Transparent	17	17	149	29	2005	2006
+74	Trans-Medium Blue	7384A5	Transparent	100	202	595	141	2001	2018
+16	Trans-Neon Green	C0F500	Transparent	220	1070	584	267	1990	2020
+18	Trans-Neon Orange	FF4231	Transparent	207	1014	587	298	1993	2020
+121	Trans-Neon Yellow	FFD700	Transparent	26	33	270	71	2001	2006
+98	Trans-Orange	D04010	Transparent	177	1562	536	237	2003	2020
+107	Trans-Pink	FF8298	Transparent	60	43	187	78	2003	2006
+51	Trans-Purple	8320B7	Transparent	145	326	414	166	2000	2020
+17	Trans-Red	9C0010	Transparent	197	3314	777	258	1969	2020
+19	Trans-Yellow	EBF72D	Transparent	197	2198	651	249	1969	2020
+57	Chrome Antique Brass	645a4c	Chrome	3	15	214	4	2001	2005
+122	Chrome Black	544E4F	Chrome	11	1	825	9	2009	2009
+52	Chrome Blue	5C66A4	Chrome	5	14	280	14	1998	2006
+21	Chrome Gold	f1f2e1	Chrome	52	263	1204	57	1989	2020
+64	Chrome Green	3CB371	Chrome	1	2	206	5	1999	1999
+82	Chrome Pink	aa4d8e	Chrome	3	12	92	8	2001	2007
+22	Chrome Silver	DCDCDC	Chrome	106	558	1794	176	1966	2018
+84	Copper	C66921	Pearl	58	74	786	86	2001	2020
+81	Flat Dark Gold	AD7118	Pearl	39	41	561	105	2003	2007
+95	Flat Silver	8D949C	Pearl	870	2337	2185	959	1998	2020
+78	Metal Blue	5686AE	Pearl	41	21	286	55	2002	2006
+77	Pearl Dark Gray	666660	Pearl	564	888	2086	621	2002	2020
+115	Pearl Gold	e79500	Pearl	786	1678	2023	870	2002	2020
+61	Pearl Light Gold	E7AE5A	Pearl	16	9	270	50	2000	2006
+66	Pearl Light Gray	ACB7C0	Pearl	421	620	1427	591	1993	2013
+119	Pearl Very Light Gray	D4D2CD	Pearl	14	10	438	45	2002	2004
+83	Pearl White	FFFFFF	Pearl	4	8	337	20	2003	2006
+229	Satin Trans-Black	939484	Satin			4	1
+224	Satin Trans-Dark Pink	CE1d9b	Satin	4	8	22	4	2020	2020
+223	Satin Trans-Light Blue	68BCC5	Satin	4	7	26	6	2020	2020
+230	Satin Trans-Purple	8320B7	Satin			4
+228	Satin White	FFFFFF	Satin	2	2	33	3	2020	2020
+65	Metallic Gold	B8860B	Metallic	81	209	981	159	1997	2020
+70	Metallic Green	bdb573	Metallic	26	7	260	37	2001	2018
+67	Metallic Silver	C0C0C0	Metallic	177	598	1670	251	1957	2020
+46	Glow In Dark Opaque	d4d5c9	Milky	41	87	468	105	1990	2011
+118	Glow In Dark Trans	bdc6ad	Milky	16	22	267	19	2005	2011
+159	Glow In Dark White	d9d9d9	Milky	29	50	678	45	2012	2020
+60	Milky White	d4d3dd	Milky	26	139	407	58	1963	2008
+101	Glitter Trans-Clear	b2adaa	Glitter	16	24	86	17	1999	2020
+100	Glitter Trans-Dark Pink	CE1d9b	Glitter	12	33	93	15	1999	2020
+162	Glitter Trans-Light Blue	68BCC5	Glitter	16	22	98	19	2015	2020
+163	Glitter Trans-Neon Green	C0F500	Glitter	1	8	60	2	2015	2018
+222	Glitter Trans-Orange	D04010	Glitter	1	1	19	1	2020	2020
+102	Glitter Trans-Purple	3A2B82	Glitter	10	41	109	12	2000	2020
+116	Speckle Black-Copper	5F4E47	Speckle	5	3	113	8	2006	2006
+151	Speckle Black-Gold	AB9421	Speckle	2	4	143	4	2010	2011
+111	Speckle Black-Silver	7C7E7C	Speckle	15	46	120	21	2005	2013
+117	Speckle DBGray-Silver	4A6363	Speckle	5	7	151	8	2006	2006
+142	Mx Aqua Green	27867E	Modulex			11	11
+128	Mx Black	000000	Modulex			66	216
+132	Mx Brown	907450	Modulex			30	34
+133	Mx Buff	DEC69C	Modulex			35	40
+126	Mx Charcoal Gray	595D60	Modulex			13	10
+149	Mx Clear	FFFFFF	Modulex			55	53
+214	Mx Foil Dark Blue	0057A6	Modulex			1	1
+210	Mx Foil Dark Gray	595D60	Modulex			1	1
+212	Mx Foil Dark Green	006400	Modulex			1
+215	Mx Foil Light Blue	68AECE	Modulex			2	1
+211	Mx Foil Light Gray	9C9C9C	Modulex			1
+213	Mx Foil Light Green	7DB538	Modulex			1	1
+219	Mx Foil Orange	F7AD63	Modulex			1	1
+217	Mx Foil Red	8B0000	Modulex			1	1
+216	Mx Foil Violet	4B0082	Modulex			1
+218	Mx Foil Yellow	FED557	Modulex			1
+139	Mx Lemon	BDC618	Modulex			10	23
+124	Mx Light Bluish Gray	AfB5C7	Modulex			10	5
+125	Mx Light Gray	9C9C9C	Modulex			46	69
+136	Mx Light Orange	F7AD63	Modulex			13	9
+137	Mx Light Yellow	FFE371	Modulex			13	10
+144	Mx Medium Blue	61AFFF	Modulex			12	11
+138	Mx Ochre Yellow	FED557	Modulex			18	16
+140	Mx Olive Green	7C9051	Modulex			18	22
+135	Mx Orange	F47B30	Modulex			15	27
+145	Mx Pastel Blue	68AECE	Modulex			18	21
+141	Mx Pastel Green	7DB538	Modulex			22	34
+148	Mx Pink	F785B1	Modulex			12	18
+130	Mx Pink Red	F45C40	Modulex			8	8
+129	Mx Red	B52C20	Modulex			18	29
+146	Mx Teal Blue	467083	Modulex			13	16
+134	Mx Terracotta	5C5030	Modulex			24	40
+143	Mx Tile Blue	0057A6	Modulex			7
+131	Mx Tile Brown	330000	Modulex			10	1
+127	Mx Tile Gray	6B5A5A	Modulex			20	68
+147	Mx Violet	BD7D85	Modulex			16	8
+123	Mx White	FFFFFF	Modulex			127	362
