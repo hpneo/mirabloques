@@ -166,6 +166,7 @@ export default function App() {
         <Select
           value={selectedColor}
           placeholder="Select a color..."
+          isSearchable
           onChange={setSelectedColor}
           options={colors.map((color) => ({
             value: color.bl_id,
@@ -176,6 +177,7 @@ export default function App() {
         <Select
           value={selectedCategory}
           placeholder="Select a category..."
+          isSearchable
           onChange={setSelectedCategory}
           options={categories.map((category) => ({
             value: category.id,
@@ -186,6 +188,7 @@ export default function App() {
         <Select
           value={selectedPart}
           placeholder="Select a part..."
+          isSearchable
           onChange={setSelectedPart}
           options={parts.map((part) => ({
             value: part.number,
