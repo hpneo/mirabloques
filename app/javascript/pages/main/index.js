@@ -5,6 +5,7 @@ import classNames from "helpers/classNames";
 import PlusIcon from "images/plus.svg";
 import RemoveIcon from "images/remove.svg";
 import SearchIcon from "images/search.svg";
+import LoaderIcon from "images/loader.svg";
 import layoutStyles from "styles/layout";
 import tableStyles from "styles/table";
 import formStyles from "styles/form";
@@ -12,13 +13,22 @@ import buttonStyles from "styles/button";
 import styles from "./styles";
 
 const csrfTag = document.querySelector("meta[name=csrf-token]");
+const SHIPPING_PER_G = 0.02010618;
+const MINIMUM_SHIPPING = 3.99;
 
 function NumericInput(props) {
   const [value, setValue] = useState(props.value);
 
-  function onChange(newValue) {
+  function onChange(event) {
+    const newValue = Number(event.target.value);
     setValue(newValue);
     props.onChange && props.onChange(newValue);
+  }
+
+  function onKeyUp(event) {
+    if (event.keyCode === 13) {
+      props.onPressEnter && props.onPressEnter();
+    }
   }
 
   return (
@@ -26,7 +36,8 @@ function NumericInput(props) {
       type="number"
       value={value}
       className={formStyles.input}
-      onChange={(event) => onChange(Number(event.target.value))}
+      onChange={onChange}
+      onKeyUp={onKeyUp}
     />
   );
 }
@@ -40,6 +51,8 @@ export default function App() {
   const [parts, setParts] = useState([]);
   const [addedParts, setAddedParts] = useState([]);
   const [eligibleStores, setEligibleStores] = useState([]);
+  const [isAddingPart, setIsAddingPart] = useState(false);
+  const [isLoadingSearchInStores, setIsLoadingSearchInStores] = useState(false);
 
   async function loadParts(categoryId) {
     const response = await fetch(`/parts?category_id=${categoryId}`);
@@ -55,20 +68,24 @@ export default function App() {
   }, [selectedCategory?.value]);
 
   async function addToList() {
+    setIsAddingPart(true);
     const response = await fetch(
       `/items?number=${selectedPart.value}&color=${selectedColor.value}`
     );
     const items = await response.json();
     const item = items[0];
-    setAddedParts((previousValue) => [
-      ...previousValue,
-      {
+
+    if (item) {
+      const newPart = {
         itemId: item.idItem,
         part: selectedPart.object,
         color: selectedColor.object,
         minimumQuantity: selectedMinimumQuantity,
-      },
-    ]);
+      };
+      setAddedParts((previousValue) => [...previousValue, newPart]);
+    }
+
+    setIsAddingPart(false);
   }
 
   function updateItemInList(itemIndex, newValue) {
@@ -95,6 +112,7 @@ export default function App() {
   }
 
   async function searchInStores() {
+    setIsLoadingSearchInStores(true);
     const body = {
       items: addedParts.map((addedPart) => ({
         item_id: addedPart.itemId,
@@ -128,6 +146,7 @@ export default function App() {
     });
 
     setEligibleStores(stores);
+    setIsLoadingSearchInStores(false);
   }
 
   return (
@@ -190,7 +209,11 @@ export default function App() {
           className={classNames(buttonStyles.button, buttonStyles.ghost)}
           disabled={!selectedPart || !selectedColor}
         >
-          <PlusIcon width="16" height="16" />
+          {isAddingPart ? (
+            <LoaderIcon width="16" height="16" className="spinning" />
+          ) : (
+            <PlusIcon width="16" height="16" />
+          )}
         </button>
       </form>
       <section className={styles.tableWrapper}>
@@ -223,6 +246,7 @@ export default function App() {
                         minimumQuantity: newValue,
                       })
                     }
+                    onPressEnter={searchInStores}
                   />
                 </td>
                 <td align="center">
@@ -262,7 +286,11 @@ export default function App() {
           onClick={searchInStores}
           disabled={addedParts.length === 0}
         >
-          <SearchIcon width="16" height="16" />
+          {isLoadingSearchInStores ? (
+            <LoaderIcon width="16" height="16" className="spinning" />
+          ) : (
+            <SearchIcon width="16" height="16" />
+          )}
         </button>
       </nav>
       <section className={styles.tableWrapper}>
@@ -279,7 +307,7 @@ export default function App() {
               <th>Unit Price</th>
               <th>Unit Weight</th>
               <th>Quantity</th>
-              <th>Total Price</th>
+              <th>Item Total + Shipping</th>
               <th>Total Weight</th>
             </tr>
           </thead>
@@ -308,7 +336,8 @@ export default function App() {
                 >
                   <td rowSpan={eligibleStore.items.length + 1}>
                     <a target="_blank" href={eligibleStore.url}>
-                      {eligibleStore.name}
+                      {eligibleStore.name}{" "}
+                      {eligibleStore.instant_checkout ? "⚡️" : null}
                     </a>
                   </td>
                   <td>
@@ -316,7 +345,8 @@ export default function App() {
                       target="_blank"
                       href={`${eligibleStore.url}?itemID=${firstItem.inventory_id}`}
                     >
-                      {firstItem.color.name} {firstItem.part.name}
+                      {firstItem.color.name} {firstItem.part.name} (
+                      {firstItem.is_new ? "New" : "Used"})
                     </a>
                     {firstItem.description ? (
                       <p className={styles.itemDescription}>
@@ -350,7 +380,8 @@ export default function App() {
                           target="_blank"
                           href={`${eligibleStore.url}?itemID=${item.inventory_id}`}
                         >
-                          {item.color.name} {item.part.name}
+                          {item.color.name} {item.part.name} (
+                          {item.is_new ? "New" : "Used"})
                         </a>
                         {item.description ? (
                           <p className={styles.itemDescription}>
@@ -371,7 +402,10 @@ export default function App() {
                   className={styles.totalByStore}
                 >
                   <th colSpan="4">Total</th>
-                  <th>US$ {totals.price.toFixed(2)}</th>
+                  <th>
+                    US$ {totals.price.toFixed(2)} + US${" "}
+                    {(totals.weight * SHIPPING_PER_G).toFixed(2)}
+                  </th>
                   <th>{totals.weight.toFixed(2)} g</th>
                 </tr>,
               ];

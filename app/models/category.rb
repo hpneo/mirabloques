@@ -7,6 +7,11 @@ class Category < ApplicationRecord
     query = query.or(where("name LIKE ?", "Bracket%"))
     query = query.or(where("name LIKE ?", "Minifigure%"))
     query = query.or(where("name LIKE ?", "Baseplate%"))
+    query = query.or(where("name LIKE ?", "Plant%"))
+    query = query.or(where("name LIKE ?", "Support%"))
+    query = query.or(where("name LIKE ?", "Wheel%"))
+    query = query.or(where("name LIKE ?", "Tire%"))
+    query = query.or(where("name LIKE ?", "Train%"))
 
     query
   end

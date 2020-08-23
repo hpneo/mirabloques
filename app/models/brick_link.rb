@@ -43,7 +43,7 @@ class BrickLink
 
   def self.search_items(q:, color:)
     results = JSON.parse(HTTP.get(SEARCH_PRODUCT_URL, params: SEARCH_PRODUCT_PARAMS.merge(q: q, color: color)).to_s).dig("result", "typeList")
-    results&.first.fetch("items", [])
+    results&.any? ? results.first.fetch("items", []) : []
   end
 
   def self.search_products_in_store(item_id:, color:, min_quantity: 50)

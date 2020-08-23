@@ -23,6 +23,7 @@ class SiteController < ApplicationController
       items_in_stores.each do |item_in_store|
         stores[item_in_store["strSellerUsername"]] ||= {
           name: item_in_store["strStorename"],
+          instant_checkout: item_in_store["instantCheckout"],
           url: "https://store.bricklink.com/#{item_in_store["strSellerUsername"]}",
           items: [],
         }
@@ -32,7 +33,8 @@ class SiteController < ApplicationController
             inventory_id: item_in_store["idInv"],
             quantity: item_in_store["n4Qty"],
             description: item_in_store["strDesc"],
-            price: item_in_store["mDisplaySalePrice"].split("US $").last.to_f
+            price: item_in_store["mDisplaySalePrice"].split("US $").last.to_f,
+            is_new: item_in_store["codeNew"] == "N"
           )
         end
       end
